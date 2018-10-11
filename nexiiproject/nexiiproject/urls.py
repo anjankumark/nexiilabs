@@ -13,6 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+#testing with VIEw based
+'''
 from django.contrib import admin
 from django.urls import path,include
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -22,6 +25,19 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('nexiiapp.urls'))
     
+]
+'''
 
+#testing with router config 
 
+from django.conf.urls import url, include
+from rest_framework import routers
+from nexiiapp import views
+
+router = routers.DefaultRouter()
+router.register(r'reg', views.RTO_DetailsViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

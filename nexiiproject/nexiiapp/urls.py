@@ -1,8 +1,11 @@
+'''
 from django.urls import path
 
 from . import views
+#for individual applications
 
 urlpatterns = [
      
-    path(r'api/rto/',views.RTO_DetailsList.as_view(),name='RTO_DetailsList'),
+    path(r'',views.RTO_DetailsViewSet.as_view({'get':'list'}),name='RTO_DetailsViewSet'),
 ]
+'''
