@@ -15,4 +15,4 @@ class RTO_Details(models.Model):
 	    db_table = 'rto_details'
 
   def __str__(self):
-      return self.name
+      return self.vehicle_name
